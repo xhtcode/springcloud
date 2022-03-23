@@ -4,3 +4,12 @@ server:
 spring:
   application:
     name: boot-admin-eureka-aserver
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:3000/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
