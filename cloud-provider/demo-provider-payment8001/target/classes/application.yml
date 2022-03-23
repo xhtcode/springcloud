@@ -22,9 +22,7 @@ management:
       exposure:
         include: '*'
 
-logging:
-  file:
-    name: admin-client.log  #配置生成日志文件名称
+
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: com.it.common.entity    # 所有Entity别名类所在包
