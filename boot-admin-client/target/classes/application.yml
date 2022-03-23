@@ -1,0 +1,38 @@
+server:
+  port: 6666
+
+spring:
+  application:
+    name: boot-admin-client
+  boot:
+    admin:
+      client:
+        url: http://localhost:5555
+        instance:
+          prefer-ip: true
+        username: admin
+        password: 123456
+#开放端点用于SpringBoot Admin的监控
+management:
+  endpoints:
+    web:
+      exposure:
+        #开放所有页面节点  默认只开启了health、info两个节点
+        include: '*'
+  endpoint:
+    health:
+      #显示健康具体信息  默认不会显示详细信息
+      show-details: always
+
+# 利用info端点，加入版本等信息
+info:
+  app:
+    versin: 1.0-SNAPSHOT
+    name: boot-admin-client
+    group: com.xht.example.cloud
+    description: Parent pom providing dependency and plugin management for applications built with Maven
+    #还可以自定义信息
+    author: 小糊涂
+    age: 保密
+
+

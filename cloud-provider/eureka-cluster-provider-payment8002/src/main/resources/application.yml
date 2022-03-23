@@ -1,0 +1,45 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: eureka-cluster-provider-service
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+  boot:
+    admin:
+      client:
+        url: http://localhost:5555
+        instance:
+          prefer-ip: true
+#开放端点用于SpringBoot Admin的监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    shutdown:
+      enabled: true
+
+logging:
+  file:
+    name: admin-client.log  #配置生成日志文件名称
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: com.it.common.entity    # 所有Entity别名类所在包
+
+# eureka 的配置
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  #    hostname: 127.0.0.1
+  client:
+    fetch-registry: true  #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    register-with-eureka: true #向eureka服务注册中心中注册自己
+    service-url:
+      defaultZone: http://eureka1:7001/eureka,http://eureka2:7002/eureka,http://eureka3:7003/eureka

@@ -1,0 +1,10 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: springboot-admin-server
+  security:
+    user:
+      name: admin
+      password: 123456

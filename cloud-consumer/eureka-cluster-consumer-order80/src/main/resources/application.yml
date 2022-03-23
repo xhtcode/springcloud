@@ -1,0 +1,16 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: eureka-cluster-consumer-service
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+       defaultZone: http://root:root@eureka1:7001/eureka,http://root:root@eureka2:7002/eureka,http://root:root@eureka3:7003/eureka

@@ -1,0 +1,32 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+  boot:
+    admin:
+      client:
+        url: http://localhost:5555
+        instance:
+          prefer-ip: true
+#开放端点用于SpringBoot Admin的监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  file:
+    name: admin-client.log  #配置生成日志文件名称
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: com.it.common.entity    # 所有Entity别名类所在包
+
+
