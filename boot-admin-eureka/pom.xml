@@ -9,6 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
+    <modules>
+        <module>boot-admin-eureka-aserver</module>
+        <module>boot-admin-eureka-eserver</module>
+        <module>boot-admin-eureka-provider</module>
+        <module>boot-admin-eureka-consumer</module>
+    </modules>
     <artifactId>boot-admin-eureka</artifactId>
 
     <properties>
@@ -16,5 +22,24 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.xht.example.cloud</groupId>
+            <artifactId>cloud-common</artifactId>
+        </dependency>
+        <!--web启动器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--actuator服务-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--security安全-->
+<!--        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>-->
     </dependencies>
 </project>

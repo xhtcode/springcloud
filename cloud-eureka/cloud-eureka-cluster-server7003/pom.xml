@@ -7,6 +7,7 @@
         <groupId>com.xht.example.cloud</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloud-eureka-cluster-server7003</artifactId>
